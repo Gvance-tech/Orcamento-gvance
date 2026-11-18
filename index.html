@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Gvance | Orçamentos</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="pdf-lib.min.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <aside>
+      <a class="brand" href="#"
+        >GVANCE<span>TECNOLOGIA / INOVAÇÃO / EVOLUÇÃO</span></a
+      >
+      <div class="nav-label">ESPAÇO DE TRABALHO</div>
+      <div class="nav-active">▤ <span>Orçamentos</span><small>01</small></div>
+      <div class="aside-bottom">
+        <span class="dot"></span> Feito para o próximo passo.
+        <p>Propostas que acompanham<br />a evolução do seu negócio.</p>
+      </div>
+    </aside>
+    <main>
+      <header>
+        <div class="breadcrumb">Workspace <span>/</span> Orçamentos</div>
+        <span class="private">● Ambiente pessoal</span>
+      </header>
+      <div class="heading">
+        <div>
+          <div class="eyebrow">PROPOSTAS COMERCIAIS</div>
+          <h1>Uma boa ideia.<br /><span>Uma proposta à altura.</span></h1>
+          <p>Do escopo ao investimento, seu próximo projeto começa aqui.</p>
+        </div>
+        <div class="heading-icon">↗</div>
+      </div>
+      <div class="toolbar">
+        <div>
+          <b>Novo orçamento</b
+          ><span id="save-state" role="status"
+            >Rascunho salvo neste navegador</span
+          >
+        </div>
+        <div class="actions">
+          <button id="new" class="secondary">＋ Novo</button
+          ><button id="download" class="primary">↓ Baixar PDF</button>
+        </div>
+      </div>
+      <div class="workspace">
+        <form id="form">
+          <section>
+            <div class="section-title">
+              <span>01</span>
+              <h2>Dados do cliente</h2>
+            </div>
+            <div class="grid">
+              <label class="full"
+                >Cliente / empresa<input
+                  id="client"
+                  placeholder="Nome do cliente ou empresa"
+                  required
+                  maxlength="160" /></label
+              ><label
+                >Contato<input
+                  id="contact"
+                  placeholder="E-mail ou telefone"
+                  maxlength="160" /></label
+              ><label
+                >Data de emissão<input id="date" type="date" required /></label
+              ><label
+                >Número do orçamento<input
+                  id="number"
+                  placeholder="2026-001"
+                  required
+                  maxlength="40"
+              /></label>
+            </div>
+          </section>
+          <section>
+            <div class="section-title">
+              <span>02</span>
+              <h2>Descrição do projeto</h2>
+            </div>
+            <label
+              >Serviço contratado<input
+                id="service"
+                placeholder="Ex.: Desenvolvimento de site institucional"
+                required
+                maxlength="240" /></label
+            ><label
+              >Objetivo e entregáveis<textarea
+                id="scope"
+                rows="4"
+                placeholder="Descreva o que será desenvolvido e entregue ao cliente…"
+                required
+                maxlength="12000"
+              ></textarea>
+            </label>
+          </section>
+          <section>
+            <div class="section-title">
+              <span>03</span>
+              <h2>Investimento</h2>
+            </div>
+            <div class="item-head">
+              <span>ITEM / DESCRIÇÃO</span><span>VALOR (R$)</span>
+            </div>
+            <div id="items"></div>
+            <button type="button" id="add" class="add">
+              ＋ Adicionar item
+            </button>
+            <div class="total">
+              <span>Investimento total</span><strong id="total">R$ 0,00</strong>
+            </div>
+          </section>
+          <section>
+            <div class="section-title">
+              <span>04</span>
+              <h2>Prazo e condições</h2>
+            </div>
+            <div class="grid">
+              <label
+                >Prazo (dias úteis)<input
+                  id="deadline"
+                  type="number"
+                  min="1"
+                  max="9999"
+                  required /></label
+              ><label
+                >Validade (dias)<input
+                  id="validity"
+                  type="number"
+                  min="1"
+                  max="9999"
+                  required /></label
+              ><label
+                >Entrada (%)<input
+                  id="deposit"
+                  type="number"
+                  min="0"
+                  max="100"
+                  step="0.01"
+                  required /></label
+              ><label>Na entrega (%)<input id="balance" readonly /></label>
+            </div>
+            <label
+              >Observações<textarea
+                id="notes"
+                rows="4"
+                maxlength="12000"
+              ></textarea>
+            </label>
+          </section>
+          <div class="form-foot">
+            Seus dados ficam salvos apenas neste navegador.
+          </div>
+        </form>
+        <div class="preview-area">
+          <div class="preview-label">
+            <span><i></i> PRÉVIA EM TEMPO REAL</span><small>Formato A4</small>
+          </div>
+          <article id="preview"></article>
+          <div class="preview-tip">
+            ↳ Preencha os campos e sua proposta ganha forma.
+          </div>
+        </div>
+      </div>
+      <footer>GVANCE <span>Seu próximo passo começa aqui.</span></footer>
+    </main>
+    <div id="toast" role="status"></div>
+  </body>
+</html>
